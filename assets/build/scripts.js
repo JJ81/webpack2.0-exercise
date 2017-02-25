@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -2394,8 +2394,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 3 */,
-/* 4 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2414,4 +2413,4 @@ console.log(_jquery2.default);
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=bundle.js.map?144da0b8ba8c63a21911
+//# sourceMappingURL=scripts.js.map?d95aea8ed7b0154204a1

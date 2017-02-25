@@ -1,58 +1,44 @@
-https://github.com/webpack/webpack
+## Webpack 2.0
 
+#### 1. Example 01
+- html-webpack-plugin
+- https://github.com/jantimon/html-webpack-plugin
+- 기본적으로 output으로 정한 위치에 모든 파일들이 빌드된다.
+- 설계 자체가 html 파일에 번들용 js를 자동 삽입될 수 있도록 되어 있다.
+- css 파일도 자동으로 삽입될 수 있도록 할 수 있는지 알아보는 게 좋겠다.
+- 템플릿 파일을 html로 변환하기 위해서는 반드시 로더의 힘이 필요하니 해당 패키지를 설치해야 한다
 
 
 ### plugin
-1. common-chunks-webpack-plugin
+1. <strong style="color :#1b95e0">html-webpack-plugin</strong>
 2. extract-text-webpack-plugin
-3. component-webpack-plugin
-4. compression-webpack-plugin
-5. i18n-webpack-plugin
-6. html-webpack-plugin
+3. common-chunks-webpack-plugin
+4. component-webpack-plugin
+5. compression-webpack-plugin
+6. i18n-webpack-plugin
 
 
-###todo
-1. html을 자동으로 압축한다.
-2. css를 자동으로 압축한다.
-3. js를 자동으로 압축한다.
-4. 경로는 원하는 곳으로 이동시킬 수 있도록 한다.
-5. build본과 원본이 구분이 될 수 있어야 한다.
-6. 이미지는 자동으로 최적화될 수 있어야 한다.
-7. 이미지가 원하는 s3버킷으로 자동으로 업로드될 수 있도록 해야 한다.
-8. es6문법을 통해서 작성된 js파일 내에 css는 어떻게 처리되는지 확인을 해야 한다.
-9.
+### Ref.
+1. https://github.com/webpack/webpack
+2. https://github.com/webpack-contrib/extract-text-webpack-plugin
+3. https://github.com/jantimon/html-webpack-plugin
+
+
+### To-Do
+1. hbs 템플릿을 각각 압축 (원본은 별도의 위치에 저장 혹은 남겨놓아야 한다)
+2. css 각각 압축 (html을 제외한 파일들은 압축 및 최적화 되어서 s3의 특정 버킷으로 업로드
+- https://www.npmjs.com/package/optimize-css-assets-webpack-plugin
+3. js 각각 압축
+4. 이미지 최적화
+
+
+### 문제점
+1. js entry를 특정 폴더로 해서 안에 있는 모든 의존성 파일을 하나로 묶고 압축하여 번들링할 수 있도록 하고 싶지만 별도로 처리가 되고 있다
+만약 별도로 처리가 될거라면 내가 원하는 형태로 변경할 수 있으면 좋겠지만 그렇게 설정이 안된다
+2. css 압축이 실행되지 않는다
+3. js압축이 실행되지 않는다 (물론 실행이 전혀 안되는 것이 아니라 원하는 대로 되지 않는다는 것이다)
+
+webpack과 grunt 그리고 gulp의 차이점을 분석해보고 각각의 장점을 도입할 수 있도록 해보자
 
 
 
-
-### index
-1. npm install html-webpack-plugin --save-dev
-2. webpack을 실행하기 위해서는 글로벌로 하나 깔아두어야 실행할 수 있다.
-3. webpack을 통해서 핸들바 템플릿을 압축해보도록 한다.
-4. 스크립트 파일을 빌드해서 옮기는 것은 쉽게 된다. 그러나 html을 압축해서 새롭게 떨구는 건 쉽지 않다.
-5. es6와 의존성 모듈을 테스트하기 위해서
-npm install babel-loader --save-dev
-
-babel-core
-babel-loader
-babel-preset-es2015
-
-(result)
-# webpack
-(node:89768) DeprecationWarning: loaderUtils.parseQuery() received a non-string value which can be problematic, see https://github.com/webpack/loader-utils/issues/56
-parseQuery() will be replaced with getOptions() in the next major version of loader-utils.
-Hash: 4f40e78cb6210356a925
-Version: webpack 2.2.1
-
-아래의 로더가 필요하다.
-npm i --save-dev html-loader
-npm i handlebars-loader --save-dev
-
-
-아래 이슈를 보고 해결을 해야 한다.
-https://github.com/webpack/loader-utils/issues/56
-
-여기까지 진행하면 hbs를 html로 변환할 수 있다.
-그런데 서버에서 내려주는 데이터를 함께 실어서 내려줄 수 있을까?
-
-템플릿을 템플릿 상태로 내려줄 수 없는가??
